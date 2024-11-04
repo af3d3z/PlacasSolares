@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlacasSolares.Views.MainPage">
+
+    <VerticalStackLayout
+            Spacing="25"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+        <Image Source="placa_logo.png"  MaximumHeightRequest="160" MaximumWidthRequest="190"/>
+        <Label Text="Login:" HorizontalTextAlignment="Center"></Label>
+        <Entry/>
+        <Label Text="Contraseña:" HorizontalTextAlignment="Center"></Label>
+        <Entry />
+        <Button Text="ACCEDER" BackgroundColor="#26A438" Clicked="btnLogin"></Button>
+    </VerticalStackLayout>
+</ContentPage>

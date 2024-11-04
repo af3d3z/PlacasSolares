@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vmodels="clr-namespace:PlacasSolares.ViewModels"
+             x:Class="PlacasSolares.Views.Citas"
+             Title="">
+    <ContentPage.BindingContext>
+        <vmodels:CitasVM />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="10">
+        <Label Text="Citas próximas" FontSize="20" FontAttributes="Bold"></Label>
+        <ListView ItemsSource="{Binding ListaCitas}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!-- He intentado hacer que haga scroll pero nanai-->
+                        <FlexLayout Direction="Row" Wrap="Wrap" VerticalOptions="Center">
+                            <Border BackgroundColor="Green" StrokeShape="RoundRectangle 15" Margin="10" >
+                                <VerticalStackLayout Padding="10" >
+                                    <Label Text="{Binding Descripcion}" FontAttributes="Bold" FontSize="18"></Label>
+                                    <FlexLayout Direction="Row" Wrap="Wrap">
+                                        <Label Text="Dueño: "></Label>
+                                        <Label Text="{Binding Duenio}"></Label>
+                                        <Label Text=" Dirección: "></Label>
+                                        <Label Text="{Binding Direccion}"></Label>
+                                        <Label Text="Cita: "></Label>
+                                        <Label Text="{Binding Fecha}"></Label>
+                                    </FlexLayout>
+                                </VerticalStackLayout>
+                            </Border>
+                            <Button 
+                                Margin="10" 
+                                MaximumHeightRequest="90" 
+                                BackgroundColor="White" 
+                                TextColor="#26A438" 
+                                Text="Ver detalles" />
+                        </FlexLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>
