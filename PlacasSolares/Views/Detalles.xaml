@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlacasSolares.Views.Detalles"
+             xmlns:vmodel="clr-namespace:PlacasSolares.ViewModels"
+             Title="Detalles de la cita">
+    <ContentPage.BindingContext>
+        <vmodel:DetallesVM />
+    </ContentPage.BindingContext>
+
+
+    <StackLayout Orientation="Vertical">
+        <Button Text="Volver" BackgroundColor="#26A438" Clicked="GoBack" MaximumWidthRequest="100" HorizontalOptions="Start" Margin="40,0,0,0"></Button>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition  Width="*"/>
+            </Grid.ColumnDefinitions>
+                <VerticalStackLayout Padding="20" Grid.Column="0" Grid.Row="0" Margin="20">
+                    <Label Text="Descripción del motivo de la cita" TextColor="#26A438" FontSize="18" FontAttributes="Bold"></Label>
+                    <Label Text="{Binding CitaDetalles.Descripcion}"></Label>
+                    <Label Text="Dirección" TextColor="#26A438" FontSize="18" FontAttributes="Bold"></Label>
+                    <Label Text="{Binding CitaDetalles.Direccion}"></Label>
+                    <Label Text="Cliente" TextColor="#26A438" FontSize="18" FontAttributes="Bold"></Label>
+                    <Label Text="{Binding CitaDetalles.Duenio}"></Label>
+                    <Label Text="Fecha y hora" TextColor="#26A438" FontSize="18" FontAttributes="Bold"></Label>
+                    <Label Text="{Binding CitaDetalles.Fecha}"></Label>
+                </VerticalStackLayout>
+                <VerticalStackLayout Padding="20" Grid.Column="1" Grid.Row="0" Margin="20">
+                    <Label Text="Observaciones" TextColor="#26A438" FontSize="18" FontAttributes="Bold"></Label>
+                    <Editor MinimumHeightRequest="150" MaximumHeightRequest="180"></Editor>
+                </VerticalStackLayout>
+                <VerticalStackLayout Padding="20" Grid.Column="0" Grid.Row="1" Margin="20">
+                    <Label Text="Adjuntar fotos al informe" TextColor="#26A438" FontSize="18" FontAttributes="Bold"></Label>
+                    <FlexLayout Wrap="Wrap" Margin="20" JustifyContent="Start" AlignItems="Start"> 
+                        <Image MaximumHeightRequest="100" Source="instalacion_solar_1" Margin="5"/>
+                        <Image MaximumHeightRequest="100" Source="instalacion_solar_2" Margin="5"/>
+                    </FlexLayout>
+                    <Button Text="Agregar" BackgroundColor="#26A438" MinimumWidthRequest="350" MaximumWidthRequest="450" HorizontalOptions="Start"></Button>
+                </VerticalStackLayout>
+            <VerticalStackLayout Padding="20" Grid.Column="1" Grid.Row="1" Margin="20">
+                <Label Text="Estado de la instalación" TextColor="#26A438" FontSize="18" FontAttributes="Bold"></Label>
+                <RadioButton Content="Apta"></RadioButton>
+                <RadioButton Content="No apta"></RadioButton>
+                <Button Text="Enviar" BackgroundColor="#26A438" MinimumWidthRequest="230" MaximumWidthRequest="450" HorizontalOptions="Start" Margin="0, 10"></Button>
+            </VerticalStackLayout>
+        </Grid>
+    </StackLayout>
+</ContentPage>

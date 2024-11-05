@@ -7,7 +7,7 @@
             Spacing="25"
             HorizontalOptions="Center"
             VerticalOptions="Center">
-        <Image Source="placa_logo.png"  MaximumHeightRequest="160" MaximumWidthRequest="190"/>
+        <Image Source="placa_logo.png"  MaximumHeightRequest="130" MaximumWidthRequest="160"/>
         <Label Text="Login:" HorizontalTextAlignment="Center"></Label>
         <Entry/>
         <Label Text="Contraseña:" HorizontalTextAlignment="Center"></Label>

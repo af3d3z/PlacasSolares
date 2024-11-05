@@ -65,6 +65,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\add.png" />
+	  <None Remove="Resources\Images\instalacion_solar_1.JPG" />
+	  <None Remove="Resources\Images\instalacion_solar_2.jpg" />
 	  <None Remove="Resources\Images\placa_logo.png" />
 	</ItemGroup>
 
@@ -76,6 +79,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\Citas.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Detalles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

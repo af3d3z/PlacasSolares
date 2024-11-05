@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PlacasSolares.DAL
 {
+    /*
+        Tengo esto por carpetas en vez de por proyectos por falta de tiempo porque el día anterior a la entrega estuve enfermo.
+     */
     public class ListadoCitas
     {
         /// <summary>

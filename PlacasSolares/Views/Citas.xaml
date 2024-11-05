@@ -3,42 +3,73 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vmodels="clr-namespace:PlacasSolares.ViewModels"
              x:Class="PlacasSolares.Views.Citas"
-             Title="">
+             Title="Citas próximas">
     <ContentPage.BindingContext>
         <vmodels:CitasVM />
     </ContentPage.BindingContext>
 
     <VerticalStackLayout Padding="10">
-        <Label Text="Citas próximas" FontSize="20" FontAttributes="Bold"></Label>
-        <ListView ItemsSource="{Binding ListaCitas}">
-            <ListView.ItemTemplate>
+        <Button Text="Cerrar sesión" BackgroundColor="#26A438" Clicked="GoBack" MaximumWidthRequest="200" HorizontalOptions="Start" Margin="20,0,0,0"></Button>
+        <CollectionView ItemsSource="{Binding ListaCitas}">
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <!-- He intentado hacer que haga scroll pero nanai-->
-                        <FlexLayout Direction="Row" Wrap="Wrap" VerticalOptions="Center">
-                            <Border BackgroundColor="Green" StrokeShape="RoundRectangle 15" Margin="10" >
-                                <VerticalStackLayout Padding="10" >
-                                    <Label Text="{Binding Descripcion}" FontAttributes="Bold" FontSize="18"></Label>
-                                    <FlexLayout Direction="Row" Wrap="Wrap">
-                                        <Label Text="Dueño: "></Label>
-                                        <Label Text="{Binding Duenio}"></Label>
-                                        <Label Text=" Dirección: "></Label>
-                                        <Label Text="{Binding Direccion}"></Label>
-                                        <Label Text="Cita: "></Label>
-                                        <Label Text="{Binding Fecha}"></Label>
-                                    </FlexLayout>
-                                </VerticalStackLayout>
-                            </Border>
-                            <Button 
-                                Margin="10" 
-                                MaximumHeightRequest="90" 
-                                BackgroundColor="White" 
-                                TextColor="#26A438" 
-                                Text="Ver detalles" />
-                        </FlexLayout>
-                    </ViewCell>
+                    <Grid Padding="10" ColumnDefinitions="Auto">
+                        <Border StrokeShape="RoundRectangle 15" Margin="5" MinimumWidthRequest="700">
+                            <VerticalStackLayout Padding="10">
+                                <Label Text="{Binding Descripcion}" FontAttributes="Bold" FontSize="18"  />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Margin="5">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Dueño: "/>
+                                                <Span Text="{Binding Duenio}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Margin="5">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Dirección: "/>
+                                                <Span Text="{Binding Direccion}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Margin="5">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Cita: "/>
+                                                <Span Text="{Binding Fecha}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                                <Grid ColumnSpacing="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Button 
+                                        BackgroundColor="#26A438"
+                                        FontAttributes="Bold"
+                                        TextColor="White" 
+                                        CornerRadius="15"
+                                        Text="Ver detalles"
+                                        Grid.Column="0"
+                                        Clicked="verDetalles"/>
+                                    <Button 
+                                        BackgroundColor="#26A438"
+                                        FontAttributes="Bold"
+                                        TextColor="White" 
+                                        CornerRadius="15"
+                                        Text="Ver en mapa"
+                                        Grid.Column="1"
+                                        Clicked="abrirMapa"/>
+                                </Grid>
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
